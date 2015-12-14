@@ -23,4 +23,7 @@ void draw() {
   if (r.loc.y > height + r.diam/2) {     //check to see if the raindrop goes below the bottom of the screen
     r.reset();                           //if it does, reset the raindrop
   }
-}
+  
+cl, vel, ;
+  int diam, acceleration;
+  color c;
