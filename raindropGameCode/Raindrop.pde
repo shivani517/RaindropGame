@@ -5,7 +5,7 @@ class Raindrop {
 
   Raindrop(float x, float y) {
     diam=50;
-    loc = new PVector(random(width), 0);
+    loc = new PVector(x, y);
     vel = new PVector(0, random(2));
     c= color(255);
   }
@@ -17,18 +17,21 @@ class Raindrop {
 
   void fall() {
     loc.add(vel);
-    vel.mult(1.5);
+    vel.mult(1.1);
     vel.limit(30);
   }
 
-  boolean isInContactWith(PVector mouse) {
-    if (loc.dist(mouse)<= diam/2) {
+  boolean isInContactWith(Bucket other ) {
+    if (loc.dist(other.loc)<= diam/2 + other.diam/2) {
       return true;
-    } else return false;
+    } else { 
+      return false;
+    }
   }
 
   void reset() {
-     loc = new PVector(random(width), 0);
+    loc = new PVector(random(width), 0);
     vel = new PVector(0, random(2));
+    println("resetting in frame " + frameCount);
   }
 }
