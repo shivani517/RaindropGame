@@ -1,38 +1,34 @@
 class Raindrop {
-  PVector loc, vel, acceleration;
+  PVector loc, vel;
   float diam;
   color c;
 
-  Raindrop() {
-    diam=20;
-    loc= new PVector(random(width), 0);
-    vel =PVector.random2D();
-    vel.mult(5);
-    c= color(255); 
+  Raindrop(float x, float y) {
+    diam=50;
+    loc = new PVector(random(width), 0);
+    vel = new PVector(0, random(2));
+    c= color(255);
+  }
 
+  void display() {
+    fill(c);
+    ellipse(loc.x, loc.y, diam, diam);
+  }
 
-    Raindrop(float tX, float tY) {
-      diam=tDiam;
-      diam=20;
-      loc= new PVector(random(width), 0);
-      vel =PVector.random2D();
-      vel.mult(5);
-      c= color(255);
-    }
-    
-    
-    
-    void diplay(){
-      
-      
-    }
+  void fall() {
+    loc.add(vel);
+    vel.mult(1.5);
+    vel.limit(30);
+  }
 
+  boolean isInContactWith(PVector mouse) {
+    if (loc.dist(mouse)<= diam/2) {
+      return true;
+    } else return false;
+  }
 
-void fall(){
-}
-
-boolean isInContactWith(){
-
- if()
- 
+  void reset() {
+     loc = new PVector(random(width), 0);
+    vel = new PVector(0, random(2));
+  }
 }
