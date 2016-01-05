@@ -17,6 +17,7 @@ void setup() {
   mouse = new PVector();                //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
   r.add(new Raindrop(random(width), 0));   //Initialize r. The parameters used are the initial x and y positions
   b = new Bucket(mouse.x, mouse.y);
+  imageMode(CENTER);
   dog=loadImage("dog.png");
 }
 
@@ -48,8 +49,8 @@ void draw() {
     if (score>100) {
       GameOver= true;
 
-      textSize(200);
-      text("game over!", 300, 400);
+      textSize(50);
+      text("game over!press a key", 150, 700);
     }
   }
 
