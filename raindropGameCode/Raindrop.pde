@@ -4,15 +4,17 @@ class Raindrop {
   color c;
 
   Raindrop(float x, float y) {
-    diam=50;
+    diam=40;
     loc = new PVector(x, y);
     vel = new PVector(0, random(2));
     c= color(255);
   }
 
   void display() {
-    fill(#18F55E);
+    fill(#A0FFA0);
     ellipse(loc.x, loc.y, diam, diam);
+    fill(#F0B1E2);
+    
   }
 
   void fall() {
@@ -32,6 +34,7 @@ class Raindrop {
   void reset() {
     loc = new PVector(random(width), 0);
     vel = new PVector(0, random(2));
-    println("resetting in frame " + frameCount);
-  }
+  
+
+    }
 }
