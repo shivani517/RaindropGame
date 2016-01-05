@@ -45,7 +45,7 @@ void draw() {
 
     textSize(100);
     text(score, 550, 600);
-    if (score>10) {
+    if (score>100) {
       GameOver= true;
 
       textSize(200);
